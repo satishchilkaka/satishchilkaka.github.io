@@ -1,18 +1,48 @@
-import { Box, Flex, Link, Stack } from '@chakra-ui/react';
+import { Box, Flex, Button, Stack } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
 const NavBar = () => {
   return (
-    <Box bg="teal.500" px={4}>
+    <Box bg="black" px={4}>
       <Flex h={16} alignItems="center" justifyContent="space-between">
         <Box fontWeight="bold" color="white">Satish Chilkaka</Box>
         <Stack direction="row" spacing={4}>
-          <NextLink href="/" passHref>
-            <Link color="white">About Me</Link>
-          </NextLink>
-          <NextLink href="/contact" passHref>
-            <Link color="white">Contact Me</Link>
-          </NextLink>
+          <Button
+            as={NextLink}
+            href="/"
+            size="md"
+            colorScheme="white"
+            variant="outline"
+            _hover={{ bg: "white", color: "black" }}
+            borderColor="white"
+            color="white"
+          >
+            About Me
+          </Button>
+          <Button
+            as={NextLink}
+            href="/contact"
+            size="md"
+            colorScheme="white"
+            variant="outline"
+            _hover={{ bg: "white", color: "black" }}
+            borderColor="white"
+            color="white"
+          >
+            Contact Me
+          </Button>
+          <Button
+            as={NextLink}
+            href="/publications"
+            size="md"
+            colorScheme="white"
+            variant="outline"
+            _hover={{ bg: "white", color: "black" }}
+            borderColor="white"
+            color="white"
+          >
+            Publications
+          </Button>
         </Stack>
       </Flex>
     </Box>
