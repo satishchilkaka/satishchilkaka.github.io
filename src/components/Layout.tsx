@@ -7,7 +7,7 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => (
   <Box>
-    <Container maxW="container.md" py={8}>
+    <Container maxW="container.xl" py={8}>
       {children}
     </Container>
   </Box>
