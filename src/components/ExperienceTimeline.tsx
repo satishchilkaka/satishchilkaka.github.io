@@ -1,52 +1,75 @@
-import { Box, VStack, Text, Heading, StackDivider } from '@chakra-ui/react';
+import { Box, VStack, Text, Heading, HStack, Divider } from '@chakra-ui/react';
 
 const ExperienceTimeline = () => {
   const experiences = [
     {
-      title: "Senior Quality Assurance Engineer - NeuroFlex",
-      date: "May 2023 - Present",
-      description: "Designed and maintained automated test suites from scratch using TypeScript and Cypress/Playwright, employing a BDD approach. Integrated Grafana, Prometheus, and SonarCloud for application health monitoring."
+      title: "Senior Software Engineer",
+      company: "NeuroFlex",
+      date: "May 2023 - Present"
     },
     {
-      title: "Lead Quality Automation Engineer - Sherpa",
-      date: "Jan 2021 - Apr 2023",
-      description: "Led the creation of automation test cases from scratch using JavaScript/TypeScript with Cypress & Playwright. Conducted REST API end-to-end testing and ensured integration with CI/CD pipelines using GitHub Actions and Jenkins."
+      title: "Lead Automation Engineer",
+      company: "Sherpa",
+      date: "Jan 2021 - Apr 2023"
     },
     {
-      title: "Senior Quality Assurance Analyst - AutoServe1",
-      date: "Jul 2016 - Dec 2020",
-      description: "Developed, expanded, and executed test plans and scripts aligned with Agile user stories. Designed and improved manual/automated tests with Node.js and Cypress, boosting coverage and reducing testing time."
+      title: "Senior Quality Assurance Analyst",
+      company: "AutoServe1",
+      date: "Jul 2016 - Dec 2020"
     },
     {
-      title: "Quality Analyst - SwaBz Systems",
-      date: "Jan 2016 - Jun 2016",
-      description: "Developed test plans and cases aligned with requirements. Automated test cases using Selenium and conducted thorough smoke testing on new builds."
+      title: "Quality Analyst",
+      company: "SwaBz Systems",
+      date: "Jan 2016 - Jun 2016"
     },
     {
-      title: "Software Quality Assurance Analyst - Mdreams (D3)",
-      date: "Jun 2015 - Dec 2015",
-      description: "Developed test plans and cases based on business user stories and design specifications. Conducted manual testing and reported defects using HP Quality Center and JIRA."
+      title: "Software Quality Assurance Analyst",
+      company: "Mdreams (D3)",
+      date: "Jun 2015 - Dec 2015"
     },
     {
-      title: "Software Quality Assurance Analyst - H-Line Soft Solutions",
-      date: "Dec 2011 - Jul 2013",
-      description: "Conducted manual and automated testing to ensure application quality across web and Windows platforms. Managed test cases and verified requirements using HP Quality Center."
+      title: "Software Quality Assurance Analyst",
+      company: "H-Line Soft Solutions",
+      date: "Dec 2011 - Jul 2013"
     }
   ];
 
   return (
     <VStack
-      divider={<StackDivider borderColor="gray.200" />}
       spacing={4}
       align="stretch"
+      position="relative"
+      _before={{
+        content: '""',
+        position: 'absolute',
+        top: '45px',
+        left: '10px',
+        bottom: 0,
+        width: '2px',
+        bg: 'gray.300'
+      }}
     >
-      <Heading as="h2" size="lg">Professional Experience</Heading>
+      <Heading as="h2" size="lg" mb={5}>Professional Experience</Heading>
       {experiences.map((exp, index) => (
-        <Box key={index} p={4} shadow="md" borderWidth="1px" borderRadius="md">
-          <Heading as="h3" size="md">{exp.title}</Heading>
-          <Text fontSize="sm" color="gray.500">{exp.date}</Text>
-          <Text mt={2}>{exp.description}</Text>
-        </Box>
+        <HStack key={index} spacing={4} align="center" position="relative">
+          {/* The line dot */}
+          <Box
+            position="absolute"
+            
+            top="40px"
+            left="3px"
+            width="10px"
+            height="10px"
+            bg="gray.300"
+            borderRadius="50%"
+            zIndex={1}
+          />
+
+          <Box ml="30px">
+            <Heading as="h3" size="md">{exp.title}</Heading>
+            <Text fontSize="sm" color="gray.500">{exp.company} - {exp.date}</Text>
+          </Box>
+        </HStack>
       ))}
     </VStack>
   );
